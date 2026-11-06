@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Book a table at Alder & Ash, a neighborhood restaurant for seasonal cooking, good wine, and long evenings."
+    />
+    <meta name="theme-color" content="#f6f4ee" />
+    <title>Alder &amp; Ash — A table worth lingering over</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Alder and Ash home">
+        <span class="wordmark-icon" aria-hidden="true">A<span>&amp;</span>A</span>
+        <span class="wordmark-name">ALDER <i>&amp;</i> ASH</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="primary-nav" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#menu">The menu</a>
+        <a href="#visit">Find us</a>
+        <a class="nav-book" href="#booking">Book a table <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> A neighborhood table in the heart of the city</p>
+          <h1>Make a little<br />room for <em>good.</em></h1>
+          <p class="hero-description">
+            Seasonal plates, thoughtful pours, and the kind of evening that never needs to be rushed.
+          </p>
+          <a class="text-link" href="#story">A little about us <span aria-hidden="true">↓</span></a>
+          <div class="hero-note">
+            <span class="note-stars" aria-label="Rated 4.9 out of 5">★★★★★</span>
+            <span>Good food, better company <i>— since 2018</i></span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&amp;fit=crop&amp;w=1400&amp;q=85"
+            alt="A warmly lit dining room set for an intimate dinner"
+          />
+          <div class="image-caption">
+            <span class="caption-mark" aria-hidden="true">✳</span>
+            <span>Come as you are.<br /><strong>Stay a little longer.</strong></span>
+          </div>
+          <span class="image-index">01 — 03</span>
+        </div>
+      </section>
+
+      <section class="booking-wrap" id="booking" aria-labelledby="booking-title">
+        <div class="booking-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> Your evening starts here</p>
+            <h2 id="booking-title">Save your <em>seat.</em></h2>
+          </div>
+          <p class="booking-aside">A good table has your name on it.<br />Choose a day and we’ll take it from here.</p>
+        </div>
+
+        <form class="booking-form" id="reservation-form">
+          <div class="booking-top-row">
+            <label class="field">
+              <span class="field-label">Date</span>
+              <span class="input-wrap">
+                <span class="input-icon" aria-hidden="true">▦</span>
+                <input id="booking-date" name="date" type="date" required />
+              </span>
+              <span class="time-error" id="date-error" aria-live="polite"></span>
+            </label>
+            <label class="field">
+              <span class="field-label">Party size</span>
+              <span class="input-wrap">
+                <span class="input-icon" aria-hidden="true">♧</span>
+                <select id="guest-count" name="guests" required>
+                  <option value="1">1 guest</option>
+                  <option value="2" selected>2 guests</option>
+                  <option value="3">3 guests</option>
+                  <option value="4">4 guests</option>
+                  <option value="5">5 guests</option>
+                  <option value="6">6 guests</option>
+                  <option value="7">7 guests</option>
+                  <option value="8">8 guests</option>
+                </select>
+              </span>
+            </label>
+          </div>
+
+          <fieldset class="time-field">
+            <legend class="field-label">Choose a time <span>·</span> <span class="timezone">all times local</span></legend>
+            <div class="time-options" role="group" aria-label="Available reservation times">
+              <button type="button" class="time-option" data-time="5:30 PM" aria-pressed="false">5:30</button>
+              <button type="button" class="time-option" data-time="6:00 PM" aria-pressed="false">6:00</button>
+              <button type="button" class="time-option" data-time="6:30 PM" aria-pressed="false">6:30</button>
+              <button type="button" class="time-option" data-time="7:00 PM" aria-pressed="false">7:00</button>
+              <button type="button" class="time-option" data-time="7:30 PM" aria-pressed="false">7:30</button>
+              <button type="button" class="time-option" data-time="8:00 PM" aria-pressed="false">8:00</button>
+            </div>
+            <input id="booking-time" name="time" type="hidden" required />
+            <p class="time-error" id="time-error" aria-live="polite"></p>
+          </fieldset>
+
+          <div class="contact-fields">
+            <label class="field">
+              <span class="field-label">Your name</span>
+              <input class="plain-input" id="guest-name" name="name" type="text" placeholder="How should we greet you?" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span class="field-label">Email address</span>
+              <input class="plain-input" id="guest-email" name="email" type="email" placeholder="For your confirmation" autocomplete="email" required />
+            </label>
+          </div>
+
+          <button class="submit-button" type="submit">
+            Find me a table <span aria-hidden="true">↗</span>
+          </button>
+          <p class="submit-error" id="booking-error" role="alert" hidden></p>
+          <p class="booking-fine-print">Demo bookings are saved on this device. No email is sent.</p>
+        </form>
+
+        <section class="confirmation" id="confirmation" role="status" aria-live="polite" hidden>
+          <span class="confirmation-icon" aria-hidden="true">✓</span>
+          <div>
+            <p class="eyebrow">It’s a date</p>
+            <h3 id="confirmation-title">Your table is on the books.</h3>
+            <p id="confirmation-details"></p>
+          </div>
+          <button class="confirmation-close" id="new-booking" type="button">Make another booking</button>
+        </section>
+      </section>
+
+      <section class="details-strip" id="visit" aria-label="Restaurant details">
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">⌖</span>
+          <div><p class="detail-label">Come find us</p><p>18 Willow Lane, Brooklyn, NY</p></div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">◷</span>
+          <div><p class="detail-label">Come on in</p><p>Tue–Sun, 5pm until late</p></div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-icon" aria-hidden="true">↗</span>
+          <div><p class="detail-label">Say hello</p><p><a href="tel:+17185550148">(718) 555-0148</a></p></div>
+        </div>
+      </section>
+
+      <section class="story-section" id="story">
+        <div class="story-photo-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
+            alt="A chef finishing a dish with fresh seasonal herbs"
+            loading="lazy"
+          />
+          <div class="story-stamp"><span>GOOD THINGS<br />GROW HERE</span><b aria-hidden="true">✳</b></div>
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> From our kitchen to your table</p>
+          <h2>Rooted here.<br /><em>Made for sharing.</em></h2>
+          <p>
+            We cook with the season, buy from the people growing it, and make room at the table for whoever walks through the door. Nothing fussy. Just ingredients with a story, and a team that’s happy you’re here.
+          </p>
+          <a class="text-link" href="#menu">A taste of what’s cooking <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <section class="menu-section" id="menu">
+        <div class="menu-intro">
+          <p class="eyebrow"><span class="eyebrow-line"></span> A few things we love</p>
+          <h2>Good things,<br /><em>in season.</em></h2>
+          <p>Our menu changes with the market. These are the kinds of things you might find on the table.</p>
+          <a class="text-link" href="#booking">Come taste for yourself <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="dish-grid">
+          <article class="dish-card">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Fresh heirloom tomato salad with herbs" loading="lazy" />
+            <div class="dish-copy"><span>01 / TO BEGIN</span><h3>Market tomatoes</h3><p>Whipped ricotta · garden herbs · sourdough</p></div>
+          </article>
+          <article class="dish-card">
+            <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="A seasonal roasted vegetable entrée" loading="lazy" />
+            <div class="dish-copy"><span>02 / TO STAY FOR</span><h3>Sunday roast</h3><p>Wood-fired vegetables · pan jus · something green</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="business-note" aria-labelledby="business-note-title">
+        <span class="business-icon" aria-hidden="true">✳</span>
+        <div>
+          <p class="eyebrow">Good for the guest. Good for the neighborhood.</p>
+          <h2 id="business-note-title">A better kind of <em>full house.</em></h2>
+          <p>
+            Reservations help us plan fresh ingredients and staff thoughtfully. A small deposit for larger parties can protect against no-shows, while private dinners and seasonal events bring new guests to the table. More certainty for our kitchen means more care in every plate.
+          </p>
+        </div>
+        <a class="text-link" href="#booking">Plan your visit <span aria-hidden="true">↗</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark footer-wordmark" href="#home">
+        <span class="wordmark-icon" aria-hidden="true">A<span>&amp;</span>A</span>
+        <span class="wordmark-name">ALDER <i>&amp;</i> ASH</span>
+      </a>
+      <p>Seasonal food. Familiar faces. A seat for you.</p>
+      <span class="footer-copyright">© 2026 Alder &amp; Ash</span>
+    </footer>
+  </body>
+</html>
